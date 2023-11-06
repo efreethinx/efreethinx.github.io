@@ -35,7 +35,7 @@ body {
     left: 0;
     width: 100%;
     padding: 2rem 7%;
-    background: yellowgreen;
+    background: transparent;
     display: flex;
     align-items: center;
     z-index: 100;
@@ -96,6 +96,7 @@ section {
 .home-content h1 {
     font-size: 5.6rem;
     font-weight: 700;
+    margin-bottom: .3rem;
 }
 
 .home-content p {
@@ -110,4 +111,57 @@ section {
     height: 4rem;
     background: transparent;
     border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    box-shadow: 0 .2rem 5.rem var(--shadow-color);
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 2.5rem 1.5rem 3rem 0;
+    transition: .5s ease;
+}
+
+.home-content .social-media a:hover {
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background: var(--main-color);
+    border-radius: .6rem;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    font-size: 1.6rem;
+    color: var(--white-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.home .service-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 768px;
+    height: 768px;
+    /* background: red; */
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.home .service-container .service-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 768px;
+    height: 768px;
+    background: purple;
+    border-radius: 50%;
 }
