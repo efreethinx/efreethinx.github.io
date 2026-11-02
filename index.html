@@ -1,15 +1,437 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f4ef" />
+    <title>Portfolio | Nama Anda</title>
+    <style>
+      :root {
+        --ink: #202a32;
+        --muted: #68757b;
+        --accent: #c26f4c;
+        --accent-dark: #985339;
+        --paper: #f6f4ef;
+        --white: #fff;
+        --line: #e6e1d8;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 24px;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.65;
+      }
+      a {
+        color: inherit;
+      }
+      .hero {
+        min-height: 100vh;
+        padding: 48px 24px 38px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: radial-gradient(ellipse at 50% 34%, #fff 0, #f6f4ef 65%);
+      }
+      .eyebrow,
+      .section-kicker {
+        color: var(--accent-dark);
+        font-size: 0.75rem;
+        font-weight: 750;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .portrait-wrap {
+        width: 218px;
+        height: 218px;
+        margin: 24px auto 23px;
+        padding: 8px;
+        border: 1px solid #d8c8b7;
+        border-radius: 50%;
+        box-shadow: 0 16px 42px #56402a1c;
+      }
+      .portrait {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #e4d7c8;
+      }
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.7rem, 7vw, 5rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 1.05;
+      }
+      .role {
+        margin: 13px 0 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+      .intro {
+        max-width: 510px;
+        margin: 16px 0 0;
+        color: var(--muted);
+      }
+      .down {
+        margin-top: 30px;
+        color: var(--accent-dark);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .down span {
+        display: block;
+        margin-top: 5px;
+        font-size: 1.2rem;
+      }
+      .nav-wrap {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        padding: 12px 16px;
+        border-block: 1px solid var(--line);
+        background: #f6f4efed;
+        backdrop-filter: blur(12px);
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        max-width: 980px;
+        margin: auto;
+        overflow-x: auto;
+      }
+      nav a {
+        flex: 0 0 auto;
+        padding: 8px 14px;
+        border-radius: 999px;
+        color: #536067;
+        font-size: 0.87rem;
+        font-weight: 650;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      nav a:hover,
+      nav a:focus-visible {
+        color: white;
+        background: var(--accent);
+        outline: none;
+      }
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 26px 24px 80px;
+      }
+      .section {
+        padding: 65px 0;
+        border-bottom: 1px solid var(--line);
+        scroll-margin-top: 75px;
+      }
+      .section:last-child {
+        border-bottom: 0;
+      }
+      h2 {
+        margin: 5px 0 22px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 500;
+        letter-spacing: -0.035em;
+        line-height: 1.15;
+      }
+      .section p {
+        max-width: 720px;
+        margin: 0;
+        color: var(--muted);
+      }
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 25px;
+      }
+      .info-card,
+      .timeline-card {
+        padding: 20px 22px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fff9;
+      }
+      .info-card small,
+      .timeline-card small {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--accent-dark);
+        font-size: 0.74rem;
+        font-weight: 750;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .info-card strong,
+      .timeline-card strong {
+        display: block;
+        font-size: 1rem;
+      }
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+      .timeline-card p {
+        margin-top: 5px;
+        font-size: 0.95rem;
+      }
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 25px;
+      }
+      .chip {
+        padding: 9px 15px;
+        border: 1px solid #dfcbb9;
+        border-radius: 999px;
+        background: #fffaf5;
+        color: #654835;
+        font-size: 0.9rem;
+        font-weight: 650;
+      }
+      .hobbies {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 25px;
+      }
+      .hobby {
+        min-height: 118px;
+        padding: 19px;
+        border-radius: 14px;
+        background: #e9e3d9;
+      }
+      .hobby:nth-child(2) {
+        background: #e8ddd3;
+      }
+      .hobby:nth-child(3) {
+        background: #e3e7df;
+      }
+      .hobby span {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.3rem;
+      }
+      .hobby strong {
+        font-size: 0.98rem;
+      }
+      footer {
+        padding: 25px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.85rem;
+      }
+      @media (max-width: 600px) {
+        .hero {
+          min-height: 94vh;
+          padding-inline: 20px;
+        }
+        .portrait-wrap {
+          width: 185px;
+          height: 185px;
+        }
+        .nav-wrap {
+          padding-inline: 8px;
+        }
+        nav {
+          justify-content: flex-start;
+        }
+        nav a {
+          padding-inline: 12px;
+          font-size: 0.82rem;
+        }
+        main {
+          padding-inline: 20px;
+        }
+        .section {
+          padding: 48px 0;
+        }
+        .info-grid,
+        .hobbies {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="eyebrow">Portfolio pribadi</div>
+      <div class="portrait-wrap">
+        <img
+          class="portrait"
+          src="https://0.academia-photos.com/6379772/2639125/27549929/s200_dede.iyan_supardi_st..jpg"
+          alt="Foto profil Nama Anda"
+        />
+      </div>
+      <h1>Dede Iyan Supardi, S.T.</h1>
+      <p class="role">Linux User · Freelancer · IT Enthusiast</p>
+      <p class="intro">
+        Halo! Saya senang belajar hal baru, bekerja bersama orang lain, dan
+        mengubah ide menjadi sesuatu yang bermanfaat.
+      </p>
+      <a class="down" href="#biodata" style="text-decoration: none"
+        >Jelajahi profil<span aria-hidden="true">↓</span></a
+      >
+    </header>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
-</head>
+    <div class="nav-wrap">
+      <nav aria-label="Menu portfolio">
+        <a href="#biodata">Biodata</a>
+        <a href="#pendidikan">Pendidikan</a>
+        <a href="#organisasi">Organisasi</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#hobi">Hobi</a>
+      </nav>
+    </div>
 
-<body>
-  Home
-  <a href="praktikum26">Next</a>
-</body>
+    <main>
+      <section class="section" id="biodata">
+        <div class="section-kicker">01 · Tentang saya</div>
+        <h2>Biodata</h2>
+        <p>
+          Saya pribadi yang antusias, bertanggung jawab, dan terbuka terhadap
+          pengalaman baru. Saya percaya proses belajar dan kolaborasi adalah
+          bagian penting untuk berkembang.
+        </p>
+        <div class="info-grid">
+          <div class="info-card">
+            <small>Nama lengkap</small><strong>Dede Iyan Supardi</strong>
+          </div>
+          <div class="info-card">
+            <small>Tempat, tanggal lahir</small
+            ><strong>Majalengka, 15 Maret 1998</strong>
+          </div>
+          <div class="info-card">
+            <small>Domisili</small><strong>Majalengka, Jawa Barat</strong>
+          </div>
+          <div class="info-card">
+            <small>Email</small><strong>efreethinx@gmail.com</strong>
+          </div>
+        </div>
+      </section>
 
+      <section class="section" id="pendidikan">
+        <div class="section-kicker">02 · Perjalanan belajar</div>
+        <h2>Pendidikan</h2>
+        <div class="timeline">
+          <article class="timeline-card">
+            <small>2022 — Sekarang</small
+            ><strong>Universitas Majalengka</strong>
+            <p>Teknik Informatika · Majalengka</p>
+          </article>
+          <article class="timeline-card">
+            <small>2019 — 2022</small><strong>SMKN 2 Majalengka</strong>
+            <p>Teknik Mekanik Otomotif · Majalengka</p>
+          </article>
+          <article class="timeline-card">
+            <small>2016 — 2019</small><strong>SMPN 1 Argapura</strong>
+            <p>Sukasari</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="organisasi">
+        <div class="section-kicker">03 · Tumbuh bersama</div>
+        <h2>Pengalaman Organisasi</h2>
+        <div class="timeline">
+          <article class="timeline-card">
+            <small>2023 — Sekarang · Kepala Difisi Pengembangan</small
+            ><strong>MGMP TKJ Kabupaten Majalengka</strong>
+            <p>
+              Berpartisipasi dalam kegiatan dan program kerja, serta
+              berkolaborasi dengan anggota tim untuk mencapai tujuan bersama.
+            </p>
+          </article>
+          <article class="timeline-card">
+            <small>2017 — 2022 · Staf</small
+            ><strong>Sekretaris Ikatan Guru Indonesia (IGI)</strong>
+            <p>
+              Berpartisipasi dalam kegiatan dan program kerja, serta
+              berkolaborasi dengan anggota tim untuk mencapai tujuan bersama.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="keahlian">
+        <div class="section-kicker">04 · Hal yang saya kuasai</div>
+        <h2>Keahlian</h2>
+        <p>
+          Beberapa kemampuan yang terus saya asah melalui pengalaman dan
+          pembelajaran.
+        </p>
+        <div class="skills">
+          <span class="chip">Linux</span
+          ><span class="chip">Jaringan Komputer</span
+          ><span class="chip">Installasi Lab dan Server</span
+          ><span class="chip">Web Programming</span
+          ><span class="chip">Canva</span><span class="chip">Presentasi</span>
+        </div>
+      </section>
+
+      <section class="section" id="hobi">
+        <div class="section-kicker">05 · Di waktu luang</div>
+        <h2>Hobi</h2>
+        <p>
+          Kegiatan yang membantu saya tetap terinspirasi dan menjaga
+          keseimbangan.
+        </p>
+        <div class="hobbies">
+          <div class="hobby">
+            <span aria-hidden="true">🚵‍♀️</span><strong>Bersepeda</strong>
+          </div>
+          <div class="hobby">
+            <span aria-hidden="true">📷</span><strong>Fotografi</strong>
+          </div>
+          <div class="hobby">
+            <span aria-hidden="true">🌿</span><strong>Menjelajah alam</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      Terima kasih sudah berkunjung · <span id="year"></span> | Dede Iyan
+      Supardi
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
+>>>>>>> 5f39cdf (update)
